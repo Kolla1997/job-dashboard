@@ -1,4 +1,10 @@
-const DEEPSEEK_API_KEY = import.meta.env.VITE_DEEPSEEK_KEY || ''
+export const DEEPSEEK_KEY = import.meta.env.VITE_DEEPSEEK_KEY
+
+if (!DEEPSEEK_KEY || DEEPSEEK_KEY === 'undefined') {
+  console.error('Missing VITE_DEEPSEEK_KEY in .env.local')
+}
+
+const DEEPSEEK_API_KEY = DEEPSEEK_KEY || ''
 const DEEPSEEK_URL = 'https://api.deepseek.com/chat/completions'
 
 /**
